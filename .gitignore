@@ -1,2 +1,4 @@
 .DS_Store
 /node_modules
+/test/popup.js
+/test/popup.js.map
