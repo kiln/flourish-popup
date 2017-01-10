@@ -1,6 +1,6 @@
 {
   "name": "@flourish/popup",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Popup UI component",
   "main": "popup.js",
   "module": "src/popup.js",

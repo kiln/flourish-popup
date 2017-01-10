@@ -7,6 +7,6 @@ export default {
   dest: "popup.js",
 
   plugins: [
-    nodeResolve({jsnext: true})
+    nodeResolve({ jsnext: true, module: true, main: false })
   ]
 };
