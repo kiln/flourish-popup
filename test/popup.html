@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Kiln popup: test page</title>
+	<script src="kiln_popup.js"></script>
+<style>
+	p { width: 700px; }
+
+	.test { height: 300px; width: 600px; border: 1px solid red; margin: 24px; cursor: crosshair; }
+	.kiln-popup { pointer-events: none; }
+
+	#test10 { position: relative; }
+	#test10 .inner { position: absolute; left: 50px; right: 50px; top: 50px; bottom: 50px; background: #ccc; }
+
+	#kiln-popup-11 .kiln-popup-svg g { fill: rgba(0,0,0,0.9); }
+	#kiln-popup-11 .kiln-popup-content { color: white; }
+</style>
+</head>
+<body>
+	<h1>Kiln popup</h1>
+	<p>Mouse over the box below. The popup bubble should always remain within the box,
+		and the arrow be pointing in one of the eight compass directions.</p>
+	<div class="test" id="test1"></div>
+
+	<p>This tests the behaviour when there is a lot of text in the popup. When the mouse is near
+		the middle of the box, the bubble cannot be accommodated completely within it. The arrow
+		should again always point in one of the eight compass directions, and the bubble should
+		never overlap the box horizontally, only vertically.</p>
+	<div class="test" id="test2"></div>
+
+	<p>This tests the behaviour when there is so much text in the popup that it cannot be accommodated
+		within the container at all. In this case the box should protrude outside the box vertically
+		but not horizontally, and the arrow should slide along the edges of the box to fit it in as well
+		as possible.</p>
+	<div class="test" id="test3"></div>
+
+	<p>This is the same as the previous test, except that the box should protrude horizontally but
+		not vertically.</p>
+	<div class="test" id="test4"></div>
+
+	<p>This popup box should always point upwards.</p>
+	<div class="test" id="test5"></div>
+
+	<p>This popup box should always point to the right.</p>
+	<div class="test" id="test6"></div>
+
+	<p>This popup box should always point down.</p>
+	<div class="test" id="test7"></div>
+
+	<p>This popup box should always point left.</p>
+	<div class="test" id="test8"></div>
+
+	<p>This popup box should point right or left.</p>
+	<div class="test" id="test9"></div>
+
+	<p>This popup should point within the smaller box.</p>
+	<div class="test" id="test10">
+		<div class="inner"></div>
+	</div>
+
+	<p>This popup should have a black background and white text.</p>
+	<div class="test" id="test11"></div>
+</body>
+</html>
