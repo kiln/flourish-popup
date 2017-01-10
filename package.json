@@ -1,0 +1,25 @@
+{
+  "name": "@flourish/popup",
+  "version": "0.1.0",
+  "description": "Popup UI component",
+  "main": "popup.js",
+  "module": "src/popup.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublish": "rollup -c"
+  },
+  "author": "Kiln Enterprises Ltd",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "d3": "^4.4.1",
+    "rollup": "^0.41.1",
+    "rollup-plugin-node-resolve": "^2.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/kiln/component-popup.git"
+  }
+}
