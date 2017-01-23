@@ -18,6 +18,4 @@ npm run publish
 
 ../cdn.flourish.rocks/bin/release "$PACKAGE" "$version" \
     popup-v%s.js popup.js \
-    popup-v%s.full.js popup-full.js \
-    popup-v%s.min.js popup.min.js \
-    popup-v%s.full.min.js popup-full.min.js
+    popup-v%s.min.js popup.min.js
