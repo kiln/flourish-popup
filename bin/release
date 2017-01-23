@@ -6,13 +6,20 @@ cd "$( dirname "${BASH_SOURCE[0]}" )/.."
 
 PACKAGE=popup
 
-if [ $# -ne 1 ]
+if [ $# -gt 1 ]
 then
-	echo >&2 "Usage: $0 <version>"
-	exit 1
+    echo >&2 "Usage: $0 <version>"
+    exit 1
 fi
 
-version=$1
+if [ $# -eq 0 ]
+then
+    version=$(python -c 'import json; print json.load(open("package.json"))["version"]')
+else
+    version=$1
+fi
+
+perl -lpi -e 'if (/^(\s*var VERSION = ")[^"]+";$/) { $found=1; $_="${1}'"$version"'\";"; } END {die "VERSION not found\n" if !$found}' src/popup.js
 
 npm publish
 
