@@ -84,7 +84,7 @@ Popup.prototype.fire = function Popup_fire(event, d) {
 	if (!(event in this.handlers)) throw "Kiln.popup.fire: No such event: " + event;
 	var handlers = this.handlers[event];
 	for (var i = 0; i < handlers.length; i++) {
-		handlers[i](d);
+		handlers[i].call(this, d);
 	}
 	return this;
 };
@@ -104,11 +104,11 @@ function svgElement(tagName, attrs, styles) {
 
 Popup.prototype._getElement = function Kiln_popup__getElement() {
 	var popup = this;
-	var id = "kiln-popup-" + this.unique_id;
+	var id = "flourish-popup-" + this.unique_id;
 	var el = document.getElementById(id);
 	if (!el) {
 		el = document.createElement("div");
-		el.className = "kiln-popup";
+		el.className = "flourish-popup";
 		el.id = id;
 
 		var s = el.style;
@@ -119,11 +119,11 @@ Popup.prototype._getElement = function Kiln_popup__getElement() {
 		s.height = "40px";
 		s.boxSizing = "border-box";
 
-		el.addEventListener("click", function() {
-			popup.fire("click", popup);
+		el.addEventListener("click", function(e) {
+			popup.fire("click", e);
 		}, false);
 
-		var svg = svgElement("svg", {"class": "kiln-popup-svg"}, {
+		var svg = svgElement("svg", {"class": "flourish-popup-svg"}, {
 			position: "absolute",
 			top: 0, left: 0, bottom: 0, right: 0
 		});
@@ -151,7 +151,7 @@ Popup.prototype._getElement = function Kiln_popup__getElement() {
 		el.appendChild(svg);
 
 		var content = document.createElement("div");
-		content.className = "kiln-popup-content";
+		content.className = "flourish-popup-content";
 		s = content.style;
 		s.position = "absolute";
 		s.top = s.left = BORDER + "px";
@@ -331,11 +331,11 @@ Popup.prototype.draw = function Kiln_popup_draw() {
 	var x = clientX - doc_rect.left, y = clientY - doc_rect.top;
 
 	var el = this._getElement(), s = el.style,
-	svg = el.querySelector(".kiln-popup-svg"),
+	svg = el.querySelector(".flourish-popup-svg"),
 	g = svg.querySelector("g"),
 	rect = g.querySelector("rect"),
 	path = g.querySelector("path"),
-	content = el.querySelector(".kiln-popup-content");
+	content = el.querySelector(".flourish-popup-content");
 
 	s.display = "block";
 	content.style.maxWidth = this.__maxContentWidth(cb) + "px";
