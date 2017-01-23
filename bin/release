@@ -1,8 +1,8 @@
 #!/bin/bash
 
-set -x
+set -ex
 
-cd "$( dirname "${BASH_SOURCE[0]}" )"
+cd "$( dirname "${BASH_SOURCE[0]}" )/.."
 
 PACKAGE=popup
 
@@ -14,7 +14,7 @@ fi
 
 version=$1
 
-npm run publish
+npm publish
 
 ../cdn.flourish.rocks/bin/release "$PACKAGE" "$version" \
     popup-v%s.js popup.js \
