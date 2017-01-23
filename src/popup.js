@@ -1,4 +1,4 @@
-var VERSION = "1.1.0";
+var VERSION = "1.1.1";
 
 var next_unique_id = 0;
 
@@ -74,14 +74,14 @@ Popup.prototype.text = function Popup_text(t) {
 
 // Attach event handlers
 Popup.prototype.on = function Popup_on(event, handler) {
-	if (!(event in this.handlers)) throw "Popup.on: No such event: " + event;
+	if (!(event in this.handlers)) throw new Error("Popup.on: No such event: " + event);
 	this.handlers[event].push(handler);
 	return this;
 };
 
 // Fire event
 Popup.prototype.fire = function Popup_fire(event, d) {
-	if (!(event in this.handlers)) throw "Popup.fire: No such event: " + event;
+	if (!(event in this.handlers)) throw new Error("Popup.fire: No such event: " + event);
 	var handlers = this.handlers[event];
 	for (var i = 0; i < handlers.length; i++) {
 		handlers[i].call(this, d);
