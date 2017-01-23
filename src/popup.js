@@ -1,4 +1,4 @@
-var VERSION = "1.0.0";
+var VERSION = "1.1.0";
 
 var next_unique_id = 0;
 
@@ -54,7 +54,7 @@ Popup.prototype.point = function(arg1, arg2) {
 		this._point = [ Math.floor(r.left + r.width/2), Math.floor(r.top + r.height/2) ];
 	}
 	else {
-		console.error("Kiln.popup: could not understand argument")
+		console.error("Popup: could not understand argument")
 	}
 
 	return this;
@@ -74,14 +74,14 @@ Popup.prototype.text = function Popup_text(t) {
 
 // Attach event handlers
 Popup.prototype.on = function Popup_on(event, handler) {
-	if (!(event in this.handlers)) throw "Kiln.popup.on: No such event: " + event;
+	if (!(event in this.handlers)) throw "Popup.on: No such event: " + event;
 	this.handlers[event].push(handler);
 	return this;
 };
 
 // Fire event
 Popup.prototype.fire = function Popup_fire(event, d) {
-	if (!(event in this.handlers)) throw "Kiln.popup.fire: No such event: " + event;
+	if (!(event in this.handlers)) throw "Popup.fire: No such event: " + event;
 	var handlers = this.handlers[event];
 	for (var i = 0; i < handlers.length; i++) {
 		handlers[i].call(this, d);
@@ -102,7 +102,7 @@ function svgElement(tagName, attrs, styles) {
 	return element;
 }
 
-Popup.prototype._getElement = function Kiln_popup__getElement() {
+Popup.prototype._getElement = function Popup__getElement() {
 	var popup = this;
 	var id = "flourish-popup-" + this.unique_id;
 	var el = document.getElementById(id);
@@ -300,7 +300,7 @@ function positionBox(dir, s, path, w, h, x, y, clientX, clientY, cb) {
 }
 
 
-Popup.prototype.__maxContentWidth = function Kiln_popup__maxContentWidth(cb) {
+Popup.prototype.__maxContentWidth = function Popup__maxContentWidth(cb) {
 	if (this._maxWidth.match(/^\d+(?:\.\d+)?%$/)) {
 		return cb.width * parseFloat(this._maxWidth) / 100;
 	}
@@ -308,14 +308,14 @@ Popup.prototype.__maxContentWidth = function Kiln_popup__maxContentWidth(cb) {
 		return parseFloat(this._maxWidth);
 	}
 	if (this._maxWidth != null) {
-		console.error("Kiln.popup: Unknown value for maxWidth: " + this._maxWidth);
+		console.error("Popup: Unknown value for maxWidth: " + this._maxWidth);
 	}
 	return cb.width;
 };
 
-Popup.prototype.draw = function Kiln_popup_draw() {
+Popup.prototype.draw = function Popup_draw() {
 	if (!this._point) {
-		console.error("Kiln.popup: cannot draw popup till point() has been specified");
+		console.error("Popup: cannot draw popup till point() has been specified");
 		return;
 	}
 
@@ -402,7 +402,7 @@ Popup.prototype.draw = function Kiln_popup_draw() {
 	}
 	// If all else fails, issue a warning and use the first specified direction.
 	else {
-		console.warn("Kiln.popup: failed to point box of size (" + w + ", " + h + ")" +
+		console.warn("Popup: failed to point box of size (" + w + ", " + h + ")" +
 			" at (" + clientX + ", " + clientY + ") within (" +
 			cb.left + ", " + cb.top +", " + cb.right + ", " + cb.bottom + ")");
 		dir = this._directions[0];
@@ -413,15 +413,15 @@ Popup.prototype.draw = function Kiln_popup_draw() {
 	return this;
 }
 
-Popup.prototype.hide = function Kiln_popup_hide() {
+Popup.prototype.hide = function Popup_hide() {
 	this._getElement().style.display = "none";
 	return this;
 }
 
 
-function Kiln_popup() {
+function Flourish_popup() {
 	return new Popup();
 }
-Kiln_popup.version = VERSION;
+Flourish_popup.version = VERSION;
 
-export default Kiln_popup;
+export default Flourish_popup;
