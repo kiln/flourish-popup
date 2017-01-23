@@ -13,7 +13,7 @@
     "minify": "uglifyjs -m -o popup.min.js popup.js"
   },
   "author": "Kiln Enterprises Ltd",
-  "license": "UNLICENSED",
+  "license": "BSD-3-Clause",
   "devDependencies": {
     "rollup": "^0.41.1",
     "uglify-js": "^2.7.5"
