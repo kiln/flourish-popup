@@ -8,13 +8,13 @@
     "test": "test"
   },
   "scripts": {
-    "test": "cd test && rollup -c",
-    "prepublish": "rollup -c"
+    "test": "for t in build full-build rollup; do ( cd test/$t && rollup -c && cat preamble.html ../tests.html > test.html && open test.html); done",
+    "prepublish": "rollup -c && rollup -c rollup-full.config.js && npm run minify",
+    "minify": "uglifyjs -m -o popup.min.js popup.js && uglifyjs -m -o popup-full.min.js popup-full.js"
   },
   "author": "Kiln Enterprises Ltd",
   "license": "UNLICENSED",
   "devDependencies": {
-    "d3": "^4.4.1",
     "rollup": "^0.41.1",
     "rollup-plugin-node-resolve": "^2.0.0"
   },

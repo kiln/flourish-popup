@@ -1,5 +1,3 @@
-import * as d3 from "d3";
-
 var VERSION = "0.1-dev";
 
 var next_unique_id = 0;
