@@ -1,4 +1,4 @@
-var VERSION = "0.1-dev";
+var VERSION = "1.0.0";
 
 var next_unique_id = 0;
 
