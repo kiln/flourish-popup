@@ -1,5 +1,5 @@
 export default {
-  entry: "src/popup.js",
+  entry: "src/index.js",
   format: "umd",
   moduleName: "Popup",
   dest: "popup.js"
