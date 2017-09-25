@@ -3,3 +3,6 @@
 /test/*/test.js
 /test/*/test.js.map
 /test/*/test.html
+
+/popup.js
+/popup.min.js
