@@ -1,3 +1,5 @@
+import { BORDER, CORNER_RADIUS } from "./constants";
+
 function svgElement(tagName, attrs, styles) {
 	var element = document.createElementNS("http://www.w3.org/2000/svg", tagName);
 	var k;

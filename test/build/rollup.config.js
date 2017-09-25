@@ -1,12 +1,14 @@
 var path = require("path");
 
-const popup_path = path.resolve("../../src/popup.js");
+const popup_path = path.resolve("../../src/index.js");
 
 export default {
-  entry: "../src/tests.js",
-  format: "iife",
-  dest: "test.js",
-  sourceMap: true,
+  input: "../src/tests.js",
+  output: {
+    file: "test.js",
+    format: "iife"
+  },
+  sourcemap: true,
 
   external: [ popup_path ],
   globals: { [popup_path]: "Popup" }

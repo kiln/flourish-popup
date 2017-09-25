@@ -3,7 +3,7 @@
   "version": "1.2.0",
   "description": "Popup UI component",
   "main": "popup.js",
-  "module": "src/popup.js",
+  "module": "src/index.js",
   "directories": {
     "test": "test"
   },

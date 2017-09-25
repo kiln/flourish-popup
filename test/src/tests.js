@@ -1,4 +1,4 @@
-import Popup from "../../src/popup";
+import Popup from "../../src/index";
 
 // Expose the popup objects so we can play around with them in the console
 var popups = {};

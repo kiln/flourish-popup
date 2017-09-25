@@ -1,3 +1,6 @@
+import { BORDER, TRIANGLE_HEIGHT } from "./constants";
+import locateTriangle from "./locate_triangle";
+
 function boxBounds(dir, w, h, x, y, cb) {
 	var lt = locateTriangle[dir](w, h, x, y, cb),
 	    left = x - BORDER - lt.pos[0],
@@ -54,7 +57,7 @@ export default function Popup_draw() {
 	content = el.querySelector(".flourish-popup-content");
 
 	s.display = "block";
-	content.style.maxWidth = popup.__maxContentWidth(cb) + "px";
+	content.style.maxWidth = maxContentWidth(cb) + "px";
 	content.innerHTML = popup._html;
 	var content_box = content.getBoundingClientRect(),
 	    w, h;

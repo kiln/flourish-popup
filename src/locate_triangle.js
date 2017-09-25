@@ -1,10 +1,7 @@
+import { CORNER_RADIUS, TRIANGLE_HALFWIDTH, TRIANGLE_HEIGHT } from "./constants";
+
 var locateTriangle = {};
 export default locateTriangle;
-
-var BORDER = 25,
-    CORNER_RADIUS = 5,
-    TRIANGLE_HALFWIDTH = 10,
-    TRIANGLE_HEIGHT = 10;
 
 locateTriangle.bottom = function locateTriangle_bottom(w, h) {
 	return {

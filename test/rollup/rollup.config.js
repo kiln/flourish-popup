@@ -1,6 +1,8 @@
 export default {
-  entry: "../src/tests.js",
-  format: "iife",
-  dest: "test.js",
-  sourceMap: true
+  input: "../src/tests.js",
+  output: {
+    format: "iife",
+    file: "test.js"
+  },
+  sourcemap: true
 };
