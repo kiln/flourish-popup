@@ -9,13 +9,14 @@
   },
   "scripts": {
     "test": "for t in build rollup; do ( cd test/$t && rollup -c && cat preamble.html ../tests.html > test.html && open test.html); done",
-    "prepublish": "rollup -c && npm run minify",
+    "build": "rollup -c",
+    "prepublish": "npm run build && npm run minify",
     "minify": "uglifyjs -m -o popup.min.js popup.js"
   },
   "author": "Kiln Enterprises Ltd",
   "license": "BSD-3-Clause",
   "devDependencies": {
-    "rollup": "^0.41.1",
+    "rollup": "^0.50.0",
     "uglify-js": "^2.7.5"
   },
   "repository": {

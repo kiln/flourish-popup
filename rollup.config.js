@@ -1,6 +1,8 @@
 export default {
-  entry: "src/index.js",
-  format: "umd",
-  moduleName: "Popup",
-  dest: "popup.js"
+	input: "src/index.js",
+	output: {
+		name: "Popup",
+		format: "umd",
+		file: "popup.js"
+	}
 };
