@@ -13,7 +13,7 @@ function positionBox(dir, s, path, w, h, x, y, clientX, clientY, cb) {
 	path.setAttribute("transform", "translate(" + (lt.pos[0] + BORDER) + "," + (lt.pos[1] + BORDER) + ")");
 }
 
-export function Popup_draw() {
+export default function Popup_draw() {
 	var popup = this;
 
 	function maxContentWidth(cb) {

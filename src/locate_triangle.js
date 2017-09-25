@@ -1,4 +1,5 @@
-export var locateTriangle = {};
+var locateTriangle = {};
+export default locateTriangle;
 
 var BORDER = 25,
     CORNER_RADIUS = 5,

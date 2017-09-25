@@ -9,7 +9,7 @@ function svgElement(tagName, attrs, styles) {
 	return element;
 }
 
-export function Popup__getElement() {
+export default function Popup__getElement() {
 	var popup = this;
 	var id = "flourish-popup-" + popup.unique_id;
 	var el = document.getElementById(id);
