@@ -4,7 +4,7 @@ import { Popup__getConstrainer, Popup__resizeConstrainer } from "./constrainer";
 import locateTriangle from "./locate_triangle";
 
 
-var VERSION = "1.2.0";
+var VERSION = "2.1.0";
 var next_unique_id = 1;
 var OPTIONS = {
 	container: document.body,

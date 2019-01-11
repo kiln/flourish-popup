@@ -88,6 +88,9 @@ A DOM element to which to constrain the popup. Defaults to `document.body`.
 ### `point`
 The point is an array of two positions `[x, y]` that determines where the popup points.
 
+### `point(arr)`
+Pass x and y positions in a two-element array, `[x, y]`.
+
 ### `point(x, y)`
 As a convenience, you can pass the x and y positions as separate arguments.
 

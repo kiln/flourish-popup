@@ -1,3 +1,7 @@
+# 2.1.0
+
+* Add option to use an array for point method
+
 # 2.0.1
 
 * Minor improvements to code clarity, again in the fix for #16. Should have no effect on behaviour.
