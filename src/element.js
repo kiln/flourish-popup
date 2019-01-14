@@ -67,7 +67,25 @@ export default function Popup__getElement() {
 		s.padding = "10px";
 		el.appendChild(content);
 
-		document.body.appendChild(el);
+		var constrainer = document.createElement("div");
+		s = constrainer.style;
+		s.overflow = "hidden";
+		s.pointerEvents = "none";
+		s.position = "absolute";
+		s.left = "0";
+		s.top = "0";
+		s.margin = "0";
+		s.padding = "0";
+
+		function resizeConstrainer() {
+			s.width = document.documentElement.scrollWidth + "px";
+			s.height = document.documentElement.scrollHeight + "px";
+		}
+		resizeConstrainer();
+		window.addEventListener("resize", resizeConstrainer);
+		constrainer.appendChild(el);
+
+		document.body.appendChild(constrainer);
 	}
 
 	return el;
