@@ -55,6 +55,13 @@ Popup.prototype.point = function(arg1, arg2) {
 	return this;
 }
 
+Popup.prototype.directions = function(arg) {
+	if (typeof arg === "undefined") return this._directions;
+	if (typeof arg === "string") arg = [ arg ];
+	this._directions = arg.slice();
+	return this;
+}
+
 function textToHtml(text) {
 	return text.replace(/[&<>]/g, function (s) {
 		return ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" })[s];

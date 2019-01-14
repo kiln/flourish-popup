@@ -1,6 +1,7 @@
 # 2.1.0
 
 * Add option to use an array for point method
+* Add option to pass in a single direction as a string to directions method
 
 # 2.0.1
 
