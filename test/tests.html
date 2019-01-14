@@ -9,6 +9,8 @@
 	#test10 { position: relative; }
 	#test10 .inner { position: absolute; left: 50px; right: 50px; top: 50px; bottom: 50px; background: #ccc; }
 
+	#test12 { border: none;  }
+
 	#flourish-popup-11 .flourish-popup-svg g { fill: rgba(0,0,0,0.9); }
 	#flourish-popup-11 .flourish-popup-content { color: white; }
 </style>
@@ -57,5 +59,8 @@
 
 	<p>This popup should have a black background and white text.</p>
 	<div class="test" id="test11"></div>
+
+	<p>This popup should not cause the page to become horizontally scrollable.</p>
+	<div class="test" id="test12"></div>
 </body>
 </html>

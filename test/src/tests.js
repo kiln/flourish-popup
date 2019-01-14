@@ -33,6 +33,24 @@ function muchText(n) {
 	};
 }
 
+function setUpOverflowTest(id) {
+	var el = document.getElementById(id);
+	if (el == null) return console.error("Element #" + id + " not found!");
+
+	var popup = Popup().container(document.body);
+
+	var button = document.createElement("button");
+	button.appendChild(document.createTextNode("Show popup"));
+	button.addEventListener("click", function(e) {
+		popup.point(window.innerWidth, e.clientY)
+			.html("This popup should not cause the page to become horizontally scrollable")
+			.draw();
+	});
+	el.appendChild(button);
+
+	popups[id] = popup;
+}
+
 document.addEventListener("DOMContentLoaded", function() {
 	var much0 = muchText(0), much4 = muchText(4), much8 = muchText(8), much15 = muchText(15);
 	test("test1", much0);
@@ -46,4 +64,5 @@ document.addEventListener("DOMContentLoaded", function() {
 	test("test9", much15, function(popup) { popup.directions(["leftFlexible", "rightFlexible"]); });
 	test("test10", much8, function(popup) { popup.container(document.querySelector("#test10 .inner")); });
 	test("test11", much4);
+	setUpOverflowTest("test12");
 });
