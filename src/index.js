@@ -1,5 +1,6 @@
 import Popup_draw from "./draw";
-import Popup_getElement from "./element";
+import Popup__getElement from "./element";
+import { Popup__getConstrainer, Popup__resizeConstrainer } from "./constrainer";
 import locateTriangle from "./locate_triangle";
 
 
@@ -84,7 +85,9 @@ Popup.prototype.fire = function Popup_fire(event, d) {
 };
 
 
-Popup.prototype._getElement = Popup_getElement;
+Popup.prototype._getElement = Popup__getElement;
+Popup.prototype._getConstrainer = Popup__getConstrainer;
+Popup.prototype._resizeConstrainer = Popup__resizeConstrainer;
 
 Popup.prototype.draw = Popup_draw;
 

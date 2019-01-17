@@ -67,8 +67,9 @@ export default function Popup__getElement() {
 		s.padding = "10px";
 		el.appendChild(content);
 
-		document.body.appendChild(el);
+		popup._getConstrainer().appendChild(el);
 	}
 
+	popup._resizeConstrainer();
 	return el;
 }
