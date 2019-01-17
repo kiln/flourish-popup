@@ -4,7 +4,7 @@ import { Popup__getConstrainer, Popup__resizeConstrainer } from "./constrainer";
 import locateTriangle from "./locate_triangle";
 
 
-var VERSION = "1.2.0";
+var VERSION = "2.1.0";
 var next_unique_id = 1;
 var OPTIONS = {
 	container: document.body,
@@ -42,8 +42,8 @@ for (var k in OPTIONS) accessor(k);
 // Custom accessor method for .point
 Popup.prototype.point = function(arg1, arg2) {
 	if (typeof arg1 == "undefined") return this._point;
-
-	if (typeof arg2 != "undefined") this._point = [ arg1, arg2 ];
+	if (Array.isArray(arg1)) this._point = [ arg1[0], arg1[1] ];
+	else if (typeof arg2 != "undefined") this._point = [ arg1, arg2 ];
 	else if (arg1 instanceof HTMLElement || arg1 instanceof SVGElement) {
 		var r = arg1.getBoundingClientRect();
 		this._point = [ Math.floor(r.left + r.width/2), Math.floor(r.top + r.height/2) ];
@@ -52,6 +52,13 @@ Popup.prototype.point = function(arg1, arg2) {
 		console.error("Popup: could not understand argument")
 	}
 
+	return this;
+}
+
+Popup.prototype.directions = function(arg) {
+	if (typeof arg === "undefined") return this._directions;
+	if (typeof arg === "string") arg = [ arg ];
+	this._directions = arg.slice();
 	return this;
 }
 

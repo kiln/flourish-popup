@@ -88,6 +88,9 @@ A DOM element to which to constrain the popup. Defaults to `document.body`.
 ### `point`
 The point is an array of two positions `[x, y]` that determines where the popup points.
 
+### `point(arr)`
+Pass x and y positions in a two-element array, `[x, y]`.
+
 ### `point(x, y)`
 As a convenience, you can pass the x and y positions as separate arguments.
 
@@ -98,7 +101,7 @@ Or you can pass a visible DOM element, which sets the point to the centre of tha
 The contents of the popup.
 
 ### `directions`
-An array of directions in priority order. Popup will use the first listed direction that
+An array of directions in priority order or a string specifying a single direction. Popup will use the first listed direction that
 allows the popup to be drawn within its container.
 
 Supported directions are:
