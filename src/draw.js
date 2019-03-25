@@ -58,7 +58,9 @@ export default function Popup_draw() {
 
 	s.display = "block";
 	content.style.maxWidth = maxContentWidth(cb) + "px";
-	content.innerHTML = popup._html;
+	if (popup._inner_html != popup._html) {
+		content.innerHTML = popup._inner_html = popup._html;
+	}
 	var content_box = content.getBoundingClientRect(),
 	    w, h;
 	do {
