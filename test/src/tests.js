@@ -57,13 +57,13 @@ function setUpFullscreenTest(id) {
 
 	var popup = Popup().container(document.body);
 	var r = el.getBoundingClientRect();
-	popup.point(r.x + r.width/2, r.y + r.height/2)
+	popup.point(r.left + r.width/2, r.top + r.height/2)
 		.html('<video controls="" src="https://public.flourish.studio/uploads/86a2c8dc-18ab-4c14-a6ca-ae0f361abd35.mp4" style="width: 200px"></video>')
 		.draw();
 
 	window.addEventListener("resize", function() {
 		var r = el.getBoundingClientRect();
-		popup.point(r.x + r.width/2, r.y + r.height/2)
+		popup.point(r.left + r.width/2, r.top + r.height/2)
 			.draw();
 	});
 
