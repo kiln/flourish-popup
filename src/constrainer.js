@@ -36,11 +36,12 @@ export function Popup__getConstrainer() {
 };
 
 export function Popup__resizeConstrainer() {
-	// The element must be removed before we compute the dimensions, or
+	// The element must be hidden before we compute the dimensions, or
 	// it will affect those dimensions itself, with the effect that the
 	// constrainer can only grow and never shrink.
-	document.body.removeChild(constrainer);
+	var old_display = style.display;
+	style.display = "none";
 	style.width = document.documentElement.scrollWidth + "px";
 	style.height = document.documentElement.scrollHeight + "px";
-	document.body.appendChild(constrainer);
+	style.display = old_display;
 }
