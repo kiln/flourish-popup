@@ -9,10 +9,13 @@
 	#test10 { position: relative; }
 	#test10 .inner { position: absolute; left: 50px; right: 50px; top: 50px; bottom: 50px; background: #ccc; }
 
-	#test12 { border: none;  }
-
 	#flourish-popup-11 .flourish-popup-svg g { fill: rgba(0,0,0,0.9); }
 	#flourish-popup-11 .flourish-popup-content { color: white; }
+
+	#test12 { border: none;  }
+
+	#flourish-popup-13 { pointer-events: all;  }
+	#flourish-popup-13 #fullscreen-test { background: white; }
 </style>
 </head>
 <body>
@@ -62,5 +65,8 @@
 
 	<p>This popup should not cause the page to become horizontally scrollable. Making the window narrower and then clicking the button again should reposition the popup at the right of the window, without leaving any excess scrollable space to the right.</p>
 	<div class="test" id="test12"></div>
+
+	<p>It should be possible to fullscreen an element of a popup, even if the popup is redrawn on window resize.</p>
+	<div class="test" id="test13"></div>
 </body>
 </html>

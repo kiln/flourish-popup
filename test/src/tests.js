@@ -51,6 +51,29 @@ function setUpOverflowTest(id) {
 	popups[id] = popup;
 }
 
+function setUpFullscreenTest(id) {
+	var el = document.getElementById(id);
+	if (el == null) return console.error("Element #" + id + " not found!");
+
+	var popup = Popup().container(document.body);
+	var r = el.getBoundingClientRect();
+	popup.point(r.x + r.width/2, r.y + r.height/2)
+		.html('<video controls="" src="https://public.flourish.studio/uploads/86a2c8dc-18ab-4c14-a6ca-ae0f361abd35.mp4" style="width: 200px"></video>')
+		.draw();
+
+	window.addEventListener("resize", function() {
+		var r = el.getBoundingClientRect();
+		popup.point(r.x + r.width/2, r.y + r.height/2)
+			.draw();
+	});
+
+	document.querySelector("#fullscreen-test button").onclick = function() {
+		this.parentElement.requestFullscreen();
+	};
+
+	popups[id] = popup;
+}
+
 document.addEventListener("DOMContentLoaded", function() {
 	var much0 = muchText(0), much4 = muchText(4), much8 = muchText(8), much15 = muchText(15);
 	test("test1", much0);
@@ -65,4 +88,5 @@ document.addEventListener("DOMContentLoaded", function() {
 	test("test10", much8, function(popup) { popup.container(document.querySelector("#test10 .inner")); });
 	test("test11", much4);
 	setUpOverflowTest("test12");
+	setUpFullscreenTest("test13");
 });
