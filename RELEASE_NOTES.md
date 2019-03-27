@@ -1,3 +1,13 @@
+# 2.1.2
+
+* Include the correct version number in the VERSION property
+
+# 2.1.1
+
+* Reuse the DOM elements, rather than recreating them, if .draw() is called without the HTML having been changed
+* Add fullscreen mode test
+
+
 # 2.1.0
 
 * Add option to use an array for point method
