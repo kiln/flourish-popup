@@ -21,6 +21,7 @@ var OPTIONS = {
 
 function Popup() {
 	this.unique_id = next_unique_id++;
+	this.is_visible = true;
 
 	for (var k in OPTIONS) this["_" + k] = OPTIONS[k];
 
@@ -99,6 +100,8 @@ Popup.prototype._resizeConstrainer = Popup__resizeConstrainer;
 Popup.prototype.draw = Popup_draw;
 
 Popup.prototype.hide = function Popup_hide() {
+	if (!this.is_visible) return this;
+	this.is_visible = false;
 	this._getElement().style.display = "none";
 	return this;
 }
