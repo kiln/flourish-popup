@@ -19,6 +19,8 @@ function positionBox(dir, s, path, w, h, x, y, clientX, clientY, cb) {
 export default function Popup_draw() {
 	var popup = this;
 
+	popup.is_visible = true;
+
 	function maxContentWidth(cb) {
 		if (popup._maxWidth.match(/^\d+(?:\.\d+)?%$/)) {
 			return cb.width * parseFloat(popup._maxWidth) / 100;
@@ -57,6 +59,7 @@ export default function Popup_draw() {
 	content = el.querySelector(".flourish-popup-content");
 
 	s.display = "block";
+	popup._getConstrainer().style.display = "block";
 	content.style.maxWidth = maxContentWidth(cb) + "px";
 	if (popup._inner_html != popup._html) {
 		content.innerHTML = popup._inner_html = popup._html;
