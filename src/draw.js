@@ -59,6 +59,7 @@ export default function Popup_draw() {
 	content = el.querySelector(".flourish-popup-content");
 
 	s.display = "block";
+	popup._getConstrainer().style.display = "block";
 	content.style.maxWidth = maxContentWidth(cb) + "px";
 	if (popup._inner_html != popup._html) {
 		content.innerHTML = popup._inner_html = popup._html;

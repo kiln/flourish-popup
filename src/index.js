@@ -103,6 +103,7 @@ Popup.prototype.hide = function Popup_hide() {
 	if (!this.is_visible) return this;
 	this.is_visible = false;
 	this._getElement().style.display = "none";
+	this._getConstrainer().style.display = "none";
 	return this;
 }
 
