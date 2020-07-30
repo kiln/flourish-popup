@@ -1,3 +1,8 @@
+# 2.1.3
+
+* Only hide the popup once when calling .hide() multiple times in a row.
+* Hide the constrainer element when the popup is hidden.
+
 # 2.1.2
 
 * Include the correct version number in the VERSION property
