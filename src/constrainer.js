@@ -36,6 +36,7 @@ export function Popup__getConstrainer() {
 };
 
 export function Popup__resizeConstrainer() {
+	if (!constrainer) Popup__getConstrainer.call(this);
 	// The element must be hidden before we compute the dimensions, or
 	// it will affect those dimensions itself, with the effect that the
 	// constrainer can only grow and never shrink.
