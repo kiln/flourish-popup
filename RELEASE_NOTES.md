@@ -1,3 +1,7 @@
+# 2.1.4
+
+* Fix bug where constrainr was undefined in resizeConstrainer
+
 # 2.1.3
 
 * Only hide the popup once when calling .hide() multiple times in a row.
