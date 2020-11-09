@@ -67,11 +67,39 @@ function setUpFullscreenTest(id) {
 			.draw();
 	});
 
-	document.querySelector("#fullscreen-test button").onclick = function() {
-		this.parentElement.requestFullscreen();
-	};
-
 	popups[id] = popup;
+}
+
+function setUpTwoPopupTest(id) {
+	var el = document.getElementById(id);
+	if (el == null) return console.error("Element #" + id + " not found!");
+
+	var popup1 = Popup().container(document.body)
+		.html("This is the first popup")
+		.point(el.querySelector(".popup1"));
+	var popup2 = Popup().container(document.body)
+		.html("This is the second popup")
+		.point(el.querySelector(".popup2"));
+
+	el.querySelector(".popup1 .show").addEventListener("click", function() {
+		var r = el.getBoundingClientRect();
+		popup1.draw();
+	});
+	el.querySelector(".popup1 .hide").addEventListener("click", function() {
+		var r = el.getBoundingClientRect();
+		popup1.hide();
+	});
+
+	el.querySelector(".popup2 .show").addEventListener("click", function() {
+		var r = el.getBoundingClientRect();
+		popup2.draw();
+	});
+	el.querySelector(".popup2 .hide").addEventListener("click", function() {
+		var r = el.getBoundingClientRect();
+		popup2.hide();
+	});
+
+	popups[id] = [popup1, popup2];
 }
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -89,4 +117,5 @@ document.addEventListener("DOMContentLoaded", function() {
 	test("test11", much4);
 	setUpOverflowTest("test12");
 	setUpFullscreenTest("test13");
+	setUpTwoPopupTest("test14");
 });

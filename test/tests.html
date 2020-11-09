@@ -16,6 +16,10 @@
 
 	#flourish-popup-13 { pointer-events: all;  }
 	#flourish-popup-13 #fullscreen-test { background: white; }
+
+	#test14 { position: relative; }
+	#test14 .popup1 { position: absolute; left: 20px; top: 50px; }
+	#test14 .popup2 { position: absolute; right: 20px; top: 50px; }
 </style>
 </head>
 <body>
@@ -68,5 +72,17 @@
 
 	<p>It should be possible to fullscreen an element of a popup, even if the popup is redrawn on window resize.</p>
 	<div class="test" id="test13"></div>
+
+	<p>Hiding one popup should not affect others.</p>
+	<div class="test" id="test14">
+		<div class="popup1">
+			<button class="show">Show</button>
+			<button class="hide">Hide</button>
+		</div>
+		<div class="popup2">
+			<button class="show">Show</button>
+			<button class="hide">Hide</button>
+		</div>
+	</div>
 </body>
 </html>
