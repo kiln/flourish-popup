@@ -1,6 +1,6 @@
 # 2.1.4
 
-* Fix bug where constrainr was undefined in resizeConstrainer
+* Fix bug where constrainer was undefined in resizeConstrainer
 
 # 2.1.3
 
