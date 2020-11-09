@@ -4,7 +4,7 @@ import { Popup__getConstrainer, Popup__resizeConstrainer } from "./constrainer";
 import locateTriangle from "./locate_triangle";
 
 
-var VERSION = "2.1.2";
+var VERSION = "2.1.5";
 var next_unique_id = 1;
 var OPTIONS = {
 	container: document.body,
@@ -103,7 +103,6 @@ Popup.prototype.hide = function Popup_hide() {
 	if (!this.is_visible) return this;
 	this.is_visible = false;
 	this._getElement().style.display = "none";
-	this._getConstrainer().style.display = "none";
 	return this;
 }
 
