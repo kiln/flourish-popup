@@ -19,7 +19,7 @@ else
     version=$1
 fi
 
-perl -lpi -e 'if (/^(\s*var VERSION = ")[^"]+";$/) { $found=1; $_="${1}'"$version"'\";"; } END {die "VERSION not found\n" if !$found}' src/popup.js
+perl -lpi -e 'if (/^(\s*var VERSION = ")[^"]+";$/) { $found=1; $_="${1}'"$version"'\";"; } END {die "VERSION not found\n" if !$found}' src/index.js
 
 npm publish
 
